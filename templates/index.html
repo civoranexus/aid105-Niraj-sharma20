@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero-section">
+    <div class="hero-left">
+        <h1>Scheme Priority Advisor</h1>
+        <p>Find schemes ranked by relevance and priority.</p>
+
+        <form action="/recommend" method="POST" class="scheme-form">
+            <label>Age</label>
+            <input type="number" name="age" required>
+
+            <label>Annual Income</label>
+            <input type="number" name="income" required>
+
+            <label>Target Group</label>
+            <select name="group">
+                <option>Students</option>
+                <option>Women</option>
+                <option>Farmers</option>
+                <option>Senior Citizens</option>
+            </select>
+
+            <label>Preferred Level</label>
+            <select name="preferred_level">
+                <option>Central</option>
+                <option>State</option>
+            </select>
+
+            <button type="submit">Analyze & Recommend</button>
+        </form>
+    </div>
+
+    <div class="hero-right">
+        <img src="{{ url_for('static', filename='images/Long_logo.png') }}" class="hero-logo">
+        <h2>Smart Ranking Engine</h2>
+        <p>
+            Our weighted priority system evaluates eligibility, income conditions,
+            and scheme focus to provide accurate ranked results.
+        </p>
+    </div>
+</section>
+
+{% endblock %}
