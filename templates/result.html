@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="results-section">
+    <div class="container">
+        <h2 class="results-title">Ranked Scheme Results</h2>
+
+        {% if recommendations %}
+            {% for scheme in recommendations %}
+                <div class="scheme-card">
+
+                    <div class="scheme-header">
+                        <h3 class="scheme-name">
+                            {{ scheme.scheme_name }}
+                        </h3>
+                        <span class="score-badge">
+                            Score: {{ scheme.score }}
+                        </span>
+                    </div>
+
+                    <div class="scheme-meta">
+                        <span class="level-tag">{{ scheme.level }}</span>
+                        <span class="category-tag">{{ scheme.schemeCategory }}</span>
+                    </div>
+
+                    <div class="scheme-content">
+                        <p><strong>Details:</strong> {{ scheme.details }}</p>
+                        <p><strong>Benefits:</strong> {{ scheme.benefits }}</p>
+                        <p><strong>Eligibility:</strong> {{ scheme.eligibility }}</p>
+                    </div>
+
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No schemes found matching your criteria.</p>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}
